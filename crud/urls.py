@@ -8,7 +8,7 @@ from .views import (
     UserPostListView
 )
 from . import views
-
+# app_name='crud'
 urlpatterns = [
     path('', PostListView.as_view(), name='crud-home'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
