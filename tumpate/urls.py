@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from face_recognition import views as face_views
 from users import views as user_views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('face_recognition/',face_views.index,name='face-recognition'),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),

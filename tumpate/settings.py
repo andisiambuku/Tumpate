@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'face_recognition.apps.FaceRecognitionConfig',
     'crispy_forms',
     'crud.apps.CrudConfig',
     'django.contrib.admin',
@@ -120,6 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# path to where static files are copied for deployment (eg, for heroku)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# location of static files in local development: https://learndjango.com/tutorials/django-favicon-tutorial
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
